@@ -6,13 +6,15 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import java.util.Random;
 
-public class QuizActivity extends AppCompatActivity {
+
+public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     Button button1, button2, button3, button4, button5, button6;
@@ -20,7 +22,7 @@ public class QuizActivity extends AppCompatActivity {
     TextView question;
 
     public Questions mQuestions = new Questions();
-    public String mAnswer;
+    public int mAnswer, intA, intB, intC, intD, intE, mFinal;
     public int mQuestionLength = mQuestions.mQuestions.length;
 
     Random r, randomA, randomB, randomC, randomD, randomE, random;
@@ -30,7 +32,7 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-
+        int correctAnswer = 0;
         question = (TextView) findViewById(R.id.questions);
         r = new Random();
 
@@ -39,7 +41,23 @@ public class QuizActivity extends AppCompatActivity {
         final int randomB = new Random().nextInt(196);
         final int randomC = new Random().nextInt(196);
         final int randomD = new Random().nextInt(196);
+        final int randomE = new Random().nextInt(196);
+
+        intA = randomA;
+        intB = randomB;
+        intC = randomC;
+        intD = randomD;
+        intE = randomE;
+
         final int mAnswer = new Random().nextInt(196);
+
+        mFinal = mAnswer;
+
+        int[] intArray = {intA, intB, intC, intD, intE};
+        int idx = new Random().nextInt(intArray.length);
+
+        intArray[idx] = mAnswer;
+
 
         String mChoices[] = {
 
@@ -444,6 +462,7 @@ public class QuizActivity extends AppCompatActivity {
 
         };
 
+        //mAnswer = correctAnswer;
 
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
@@ -453,13 +472,18 @@ public class QuizActivity extends AppCompatActivity {
         button6 = (Button) findViewById(R.id.button6);
 
         button6.setText(mCountries[mAnswer]);
-        button1.setText(mChoices[randomA]);
-        button2.setText(mChoices[randomB]);
-        button3.setText(mChoices[randomC]);
-        button4.setText(mChoices[randomD]);
-        button5.setText(mChoices[mAnswer]);
+        button1.setText(mChoices[intArray[0]]);
+        button2.setText(mChoices[intArray[1]]);
+        button3.setText(mChoices[intArray[2]]);
+        button4.setText(mChoices[intArray[3]]);
+        button5.setText(mChoices[intArray[4]]);
 
-        Button button_click1 = findViewById(R.id.button1);
+        intA = intArray[0];
+        intB = intArray[1];
+        intC = intArray[2];
+        intD = intArray[3];
+        intE = intArray[4];
+   /*     Button button_click1 = findViewById(R.id.button1);
         button_click1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -503,15 +527,19 @@ public class QuizActivity extends AppCompatActivity {
 
             }
         });
+*/
 
 
 
-
-
+        button1.setOnClickListener(this);
+        button2.setOnClickListener(this);
+        button3.setOnClickListener(this);
+        button4.setOnClickListener(this);
+        button5.setOnClickListener(this);
     }
 
 
-
+/*
 
     private void Choice_1() {
         Intent intent = new Intent(this, Choice_1.class);
@@ -532,5 +560,78 @@ public class QuizActivity extends AppCompatActivity {
     private void Choice_5() {
         Intent intent = new Intent(this, Choice_5.class);
         startActivity(intent);
+    }
+*/
+
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button1:
+                //Toast.makeText(this, "Button 1 clicked", Toast.LENGTH_SHORT).show();
+                if (intA == mFinal)
+                {
+                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+
+                }
+                else
+                {
+                    Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Result="+intA, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Result="+mFinal, Toast.LENGTH_SHORT).show();
+                }
+                finish();
+                startActivity(getIntent());
+                break;
+            case R.id.button2:
+                if (intB == mFinal)
+                {
+                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                }
+                finish();
+                startActivity(getIntent());
+                break;
+            case R.id.button3:
+                if (intC == mFinal)
+                {
+                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                }
+                finish();
+                startActivity(getIntent());
+                break;
+            case R.id.button4:
+                if (intD == mFinal)
+                {
+                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                }
+                finish();
+                startActivity(getIntent());
+                break;
+            case R.id.button5:
+                if (intE == mFinal)
+                {
+                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                }
+                finish();
+                startActivity(getIntent());
+                break;
+        }
     }
 }

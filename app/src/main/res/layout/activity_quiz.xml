@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+
     android:padding="16dp"
     tools:context=".QuizActivity">
 
@@ -59,6 +59,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/questions"
         android:text="@string/B6" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="443dp"
+        app:srcCompat="@drawable/globe" />
 
 
 </RelativeLayout>
