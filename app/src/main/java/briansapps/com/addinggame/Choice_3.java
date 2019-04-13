@@ -6,34 +6,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class StartingScreenActivity extends AppCompatActivity {
-
-    private Button button1;
+public class Choice_3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_starting_screen);
+        setContentView(R.layout.activity_choice_3);
 
-
-        Button buttonStartQuiz = findViewById(R.id.button_start_quiz);
-        buttonStartQuiz.setOnClickListener(new View.OnClickListener() {
+        Button Return_1 = findViewById(R.id.return_button);
+        Return_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startQuiz();
+                Return_1();
 
             }
         });
 
-
     }
-
-
-    private void startQuiz() {
-
-        Intent intent = new Intent(StartingScreenActivity.this, QuizActivity.class);
+    private void Return_1() {
+        Intent intent = new Intent(this, QuizActivity.class);
         startActivity(intent);
     }
-
 
 }

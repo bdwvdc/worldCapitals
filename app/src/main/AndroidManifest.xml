@@ -9,6 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Choice_5"></activity>
+        <activity android:name=".Choice_4" />
+        <activity android:name=".Choice_3" />
+        <activity android:name=".Choice_2" />
+        <activity android:name=".Choice_1" />
+        <activity
+            android:name=".Choice1"
+            android:label="@string/title_activity_choice1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".IncorrectAnswer"
+            android:label="@string/title_activity_incorrect_answer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CorrectAnswer" />
         <activity android:name=".StartingScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,7 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QuizActivity"></activity>
+        <activity android:name=".QuizActivity" />
     </application>
 
 </manifest>

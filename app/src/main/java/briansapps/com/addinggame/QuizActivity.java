@@ -443,7 +443,7 @@ public class QuizActivity extends AppCompatActivity {
                 "ZIMBABWE"
 
         };
-        //randomCountry = new randomCountry();
+
 
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
@@ -451,6 +451,7 @@ public class QuizActivity extends AppCompatActivity {
         button4 = (Button) findViewById(R.id.button4);
         button5 = (Button) findViewById(R.id.button5);
         button6 = (Button) findViewById(R.id.button6);
+
         button6.setText(mCountries[mAnswer]);
         button1.setText(mChoices[randomA]);
         button2.setText(mChoices[randomB]);
@@ -458,5 +459,78 @@ public class QuizActivity extends AppCompatActivity {
         button4.setText(mChoices[randomD]);
         button5.setText(mChoices[mAnswer]);
 
+        Button button_click1 = findViewById(R.id.button1);
+        button_click1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Choice_1();
+
+            }
+        });
+
+        Button button_click2 = findViewById(R.id.button2);
+        button_click2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Choice_2();
+
+            }
+        });
+
+        Button button_click3 = findViewById(R.id.button3);
+        button_click3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Choice_3();
+
+            }
+        });
+
+        Button button_click4 = findViewById(R.id.button4);
+        button_click4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Choice_4();
+
+            }
+        });
+
+        Button button_click5 = findViewById(R.id.button5);
+        button_click5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Choice_5();
+
+            }
+        });
+
+
+
+
+
+    }
+
+
+
+
+    private void Choice_1() {
+        Intent intent = new Intent(this, Choice_1.class);
+        startActivity(intent);
+    }
+    private void Choice_2() {
+        Intent intent = new Intent(this, Choice_2.class);
+        startActivity(intent);
+    }
+    private void Choice_3() {
+        Intent intent = new Intent(this, Choice_3.class);
+        startActivity(intent);
+    }
+    private void Choice_4() {
+        Intent intent = new Intent(this, Choice_4.class);
+        startActivity(intent);
+    }
+    private void Choice_5() {
+        Intent intent = new Intent(this, Choice_5.class);
+        startActivity(intent);
     }
 }
